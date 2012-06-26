@@ -1,7 +1,25 @@
+gtest/
+libs/
+
+*~
+*.swp
+*.suo
+*.user
+*.idb
+*.sdf
+*.lastbuildstate
+*.log
+*.tlog
+*.exe
+*.exe.*
+
+
 # Compiled Object files
 *.slo
 *.lo
 *.o
+*.obJ
+*.pdb
 
 # Compiled Dynamic libraries
 *.so
