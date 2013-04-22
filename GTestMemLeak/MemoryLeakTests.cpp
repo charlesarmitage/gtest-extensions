@@ -24,11 +24,13 @@ TEST(MemoryLeakTests, ATestThatNewsWithoutDeletingShouldDetectAMemoryLeakAndFail
 TEST(MemoryLeakTests, ATestThatDoesNotLeakShouldNotDetectAMemoryLeak)
 {
 	unsigned long noleak;
+	(void)noleak;
 }
 
 TEST(MemoryLeakTests, ATestThatFailsWithoutALeakShouldNotDetectAMemoryLeak)
 {
 	unsigned long noleak;
+	(void)noleak;
 	FAIL() << "Fail without memory leak.";
 }
 
