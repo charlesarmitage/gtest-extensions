@@ -61,6 +61,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="catch.hpp" />
+    <ClInclude Include="StringErrorFormat.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TryCatch.cpp" />
