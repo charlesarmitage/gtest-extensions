@@ -18,7 +18,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 #include "gtest\gtest.h"
 #include <crtdbg.h>
 
-int __cdecl printToStdErr(int reportType, char* szMsg, int* retVal){
+inline int __cdecl printToStdErr(int reportType, char* szMsg, int* retVal){
 	std::cerr << szMsg;
 	return 1; // No further processing required by _CrtDebugReport
 }
