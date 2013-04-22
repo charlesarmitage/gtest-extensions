@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GTestMemLeak", "GTestMemLea
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringCompCatch", "StringCompCatch\StringCompCatch.vcxproj", "{E56C348E-9B95-426E-B380-CA027FB893DD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GTestString", "GTestString\GTestString.vcxproj", "{D2594F47-FC16-4188-8255-860FD449EA33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -35,6 +37,16 @@ Global
 		{E56C348E-9B95-426E-B380-CA027FB893DD}.Release|Win32.ActiveCfg = Release|Win32
 		{E56C348E-9B95-426E-B380-CA027FB893DD}.Release|Win32.Build.0 = Release|Win32
 		{E56C348E-9B95-426E-B380-CA027FB893DD}.Release|x86.ActiveCfg = Release|Win32
+		{D2594F47-FC16-4188-8255-860FD449EA33}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{D2594F47-FC16-4188-8255-860FD449EA33}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{D2594F47-FC16-4188-8255-860FD449EA33}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D2594F47-FC16-4188-8255-860FD449EA33}.Debug|Win32.Build.0 = Debug|Win32
+		{D2594F47-FC16-4188-8255-860FD449EA33}.Debug|x86.ActiveCfg = Debug|Win32
+		{D2594F47-FC16-4188-8255-860FD449EA33}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{D2594F47-FC16-4188-8255-860FD449EA33}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{D2594F47-FC16-4188-8255-860FD449EA33}.Release|Win32.ActiveCfg = Release|Win32
+		{D2594F47-FC16-4188-8255-860FD449EA33}.Release|Win32.Build.0 = Release|Win32
+		{D2594F47-FC16-4188-8255-860FD449EA33}.Release|x86.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
