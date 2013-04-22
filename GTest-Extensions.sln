@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GTestMemLeak", "..\GTestMemLeak\GTestMemLeak.vcxproj", "{34AD62B0-DA56-4189-882A-9A7A638B30E7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GTestMemLeak", "GTestMemLeak\GTestMemLeak.vcxproj", "{34AD62B0-DA56-4189-882A-9A7A638B30E7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringCompCatch", "..\StringCompCatch\StringCompCatch.vcxproj", "{E56C348E-9B95-426E-B380-CA027FB893DD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringCompCatch", "StringCompCatch\StringCompCatch.vcxproj", "{E56C348E-9B95-426E-B380-CA027FB893DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
