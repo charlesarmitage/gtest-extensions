@@ -1,3 +1,7 @@
+// Copyright C.Armitage 2013
+// Distributed under the FreeBSD license.
+// See accompanying file License.txt
+
 #pragma once
 #include <iostream>
 #include <string>
