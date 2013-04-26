@@ -14,6 +14,9 @@
     <ClCompile Include="AssertionResultTests.cpp" />
     <ClCompile Include="testmain.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DetailedStringAsserts.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D2594F47-FC16-4188-8255-860FD449EA33}</ProjectGuid>
     <RootNamespace>GTestString</RootNamespace>
