@@ -15,7 +15,7 @@
     <ClCompile Include="testmain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DetailedStringAsserts.h" />
+    <ClInclude Include="..\GTest-Extensions\DetailedStringAsserts.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D2594F47-FC16-4188-8255-860FD449EA33}</ProjectGuid>
@@ -48,7 +48,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\gtest\include;..\StringCompCatch</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\gtest\include;..\GTest-Extensions</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -62,7 +62,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\gtest\include;..\StringCompCatch</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\gtest\include;..\GTest-Extensions</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

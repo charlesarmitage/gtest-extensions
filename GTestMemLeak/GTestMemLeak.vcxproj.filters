@@ -23,10 +23,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MemLeakListener.h">
+    <ClInclude Include="..\GTest-Extensions\MemLeakInstrumentation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MemLeakInstrumentation.h">
+    <ClInclude Include="..\GTest-Extensions\MemLeakListener.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
