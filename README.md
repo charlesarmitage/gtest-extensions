@@ -17,8 +17,6 @@ See: http://msdn.microsoft.com/en-us/library/wc28wkas(v=vs.100).aspx
 Enhance string match failure messages to help developers working on large strings
 see where the failures are in their string tests.
 
-TODO: Rename repo.
-
 License
 -------
 
