@@ -7,7 +7,7 @@
 #include <string>
 #include <algorithm>
 
-std::string create_msg(const std::string& match)
+inline std::string create_msg(const std::string& match)
 {
 	std::stringstream message;
 	message << "Expected and actual differ at index: " << match.length() << ".\n";
@@ -16,7 +16,7 @@ std::string create_msg(const std::string& match)
 	return message.str();
 }
 
-std::string format_error_msg(const std::string& expected, const std::string& actual)
+inline std::string format_error_msg(const std::string& expected, const std::string& actual)
 {
 	if(expected == actual)
 	{
