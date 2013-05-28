@@ -4,8 +4,10 @@
 #include "gtest\gtest.h"
 #include "DetailedStringAsserts.h"
 
+
 TEST(AssertionResultsTests, UsePredicateFormatAssert)
 {
+	using namespace gte;
 	ASSERT_PRED_FORMAT2(AreStringsEqual, "test string", "test string");
 }
 
@@ -16,6 +18,8 @@ TEST(AssertionResultsTests, UseCustomAssertMacro)
 
 TEST(AssertionResultTests, EqualStringsShouldReturnSuccessResult)
 {
+	using namespace gte;
+
 	auto expected_str = "test string";
 	auto actual_str = "test string";
 	auto result = AreStringsEqual("expected_str", "actual_str", expected_str, actual_str);
@@ -24,6 +28,8 @@ TEST(AssertionResultTests, EqualStringsShouldReturnSuccessResult)
 
 TEST(AssertionResultTests, DifferentStringsShouldReturnFailureResult)
 {
+	using namespace gte;
+
 	auto expected_str = "test string";
 	auto actual_str = "a different string";
 	auto result = AreStringsEqual("expected_str", "actual_str", expected_str, actual_str);
@@ -32,6 +38,8 @@ TEST(AssertionResultTests, DifferentStringsShouldReturnFailureResult)
 
 TEST(AssertionResultTests, DifferentStringsShouldReturnDetailedErrorMessage)
 {
+	using namespace gte;
+
 	auto expected_str = "a test string";
 	auto actual_str = "a different string";
 	auto result = AreStringsEqual("expected_str", "actual_str", expected_str, actual_str);

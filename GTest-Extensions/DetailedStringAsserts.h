@@ -5,21 +5,24 @@
 #include "gtest\gtest.h"
 #include "StringErrorFormat.h"
 
-inline ::testing::AssertionResult AreStringsEqual(const char* expected_expr, const char* actual_expr, const std::string& expected, const std::string& actual)
+namespace gte // google test extensions
 {
-  if (expected == actual)
-    return ::testing::AssertionSuccess();
-  
-  auto failure_msg = ::testing::AssertionFailure();
+	inline ::testing::AssertionResult AreStringsEqual(const char* expected_expr, const char* actual_expr, const std::string& expected, const std::string& actual)
+	{
+		if (expected == actual)
+			return ::testing::AssertionSuccess();
 
-  failure_msg << "'" << expected_expr << "' & " << "'" << actual_expr << "' are not equal.\n";
-  failure_msg << "Expected: " << expected << '\n';
-  failure_msg << "Actual:   " << actual << '\n';
-  failure_msg << format_error_msg(expected, actual);
+		auto failure_msg = ::testing::AssertionFailure();
 
-  return failure_msg;
+		failure_msg << "'" << expected_expr << "' & " << "'" << actual_expr << "' are not equal.\n";
+		failure_msg << "Expected: " << expected << '\n';
+		failure_msg << "Actual:   " << actual << '\n';
+		failure_msg << format_error_msg(expected, actual);
+
+		return failure_msg;
+	}
 }
 
 #define ASSERT_STRINGS_EQUAL(expected, actual) do { \
-	ASSERT_PRED_FORMAT2(AreStringsEqual, expected, actual); \
-	} while(false)
+	ASSERT_PRED_FORMAT2(gte::AreStringsEqual, expected, actual); \
+} while(false)

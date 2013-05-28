@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	::testing::InitGoogleTest(&argc, argv);
 
 	::testing::TestEventListeners& listeners = ::testing::UnitTest::GetInstance()->listeners();
-	listeners.Append(new MemLeakListener);
+	listeners.Append(new gte::MemLeakListener);
 
 	int result = RUN_ALL_TESTS();
 

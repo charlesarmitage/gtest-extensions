@@ -18,50 +18,55 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 #include "gtest\gtest.h"
 #include <crtdbg.h>
 
-inline int __cdecl printToStdErr(int reportType, char* szMsg, int* retVal){
-	std::cerr << szMsg;
-	return 1; // No further processing required by _CrtDebugReport
-}
+namespace gte // google test extensions
+{
 
-class MemLeakListener : public ::testing::EmptyTestEventListener {
-	_CrtMemState memAtStart;
-	bool leaksDetected;
-	
-	virtual void OnTestProgramStart(const ::testing::UnitTest& unit_test){
-		_CrtSetReportHook2(_CRT_RPTHOOK_INSTALL, &printToStdErr);
-	}
-	
-	virtual void OnTestStart(const ::testing::TestInfo& test_info){
-		_CrtMemCheckpoint( &memAtStart );
-		leaksDetected = false;
+	inline int __cdecl printToStdErr(int reportType, char* szMsg, int* retVal){
+		std::cerr << szMsg;
+		return 1; // No further processing required by _CrtDebugReport
 	}
 
-	virtual void OnTestEnd(const ::testing::TestInfo& test_info){
-		if(test_info.result()->Passed()){
-			CheckForMemLeaks(test_info);
+	class MemLeakListener : public ::testing::EmptyTestEventListener {
+		_CrtMemState memAtStart;
+		bool leaksDetected;
+
+		virtual void OnTestProgramStart(const ::testing::UnitTest& unit_test){
+			_CrtSetReportHook2(_CRT_RPTHOOK_INSTALL, &printToStdErr);
 		}
-	}
 
-	void CheckForMemLeaks(const ::testing::TestInfo& test_info){
-		_CrtMemState memAtEnd;
-		_CrtMemCheckpoint( &memAtEnd );
-
-		_CrtMemState memDiff;
-		if ( _CrtMemDifference( &memDiff, &memAtStart, &memAtEnd)){
-			leaksDetected = true;
-			_CrtMemDumpStatistics( &memDiff );
-			FAIL() << "Memory leak in " << test_info.test_case_name() << "." << test_info.name() << '\n';
+		virtual void OnTestStart(const ::testing::TestInfo& test_info){
+			_CrtMemCheckpoint( &memAtStart );
+			leaksDetected = false;
 		}
-	}
 
-	virtual void OnTestProgramEnd(const ::testing::UnitTest& unit_test){
-		if(leaksDetected){
+		virtual void OnTestEnd(const ::testing::TestInfo& test_info){
+			if(test_info.result()->Passed()){
+				CheckForMemLeaks(test_info);
+			}
+		}
+
+		void CheckForMemLeaks(const ::testing::TestInfo& test_info){
+			_CrtMemState memAtEnd;
+			_CrtMemCheckpoint( &memAtEnd );
+
+			_CrtMemState memDiff;
+			if ( _CrtMemDifference( &memDiff, &memAtStart, &memAtEnd)){
+				leaksDetected = true;
+				_CrtMemDumpStatistics( &memDiff );
+				FAIL() << "Memory leak in " << test_info.test_case_name() << "." << test_info.name() << '\n';
+			}
+		}
+
+		virtual void OnTestProgramEnd(const ::testing::UnitTest& unit_test){
+			if(leaksDetected){
 #ifdef DETAILED_MEM_LEAKS
-			_CrtDumpMemoryLeaks();
+				_CrtDumpMemoryLeaks();
 #else
-			std::cerr << "Detailed leak information available by instrumenting your code with DETAILED_MEM_LEAKS macro & MemLeakInstrumentation.h header file.\n";
+				std::cerr << "Detailed leak information available by instrumenting your code with DETAILED_MEM_LEAKS macro & MemLeakInstrumentation.h header file.\n";
 #endif
+			}
+			_CrtSetReportHook2(_CRT_RPTHOOK_REMOVE, &printToStdErr);
 		}
-		_CrtSetReportHook2(_CRT_RPTHOOK_REMOVE, &printToStdErr);
-	}
-};
+	};
+
+}
