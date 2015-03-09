@@ -40,6 +40,17 @@ Matching section:\n\
 \'This is the expected\'\n");
 		}
 
+		WHEN( "Actual is shorter than expected string and contains mis-match" )
+		{
+			auto actual = "This is not the";
+
+			auto msg = format_error_msg(expected, actual);
+
+			REQUIRE( msg == "Expected and actual differ at index: 8.\n\
+Matching section:\n\
+\'This is \'\n");
+		}
+
 		WHEN( "Actual is longer than expected string" )
 		{
 			auto actual = "This is the expected string. But this is not.";

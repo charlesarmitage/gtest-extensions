@@ -16,18 +16,15 @@ inline std::string create_msg(const std::string& match)
 	return message.str();
 }
 
-inline std::string format_error_msg(const std::string& expected, const std::string& actual)
+inline std::string matching_expected_substring(const std::string& expected, const std::string& actual)
 {
-	if(expected == actual)
+	auto padded_actual = actual;
+	if(expected.length() > actual.length())
 	{
-		return "No error. Strings are identical.";
-	}
-	else if(expected.length() > actual.length())
-	{
-		return create_msg(actual);
+		padded_actual.resize(expected.length());
 	}
 
-	auto result = std::mismatch(expected.begin(), expected.end(), actual.begin());
+	auto result = std::mismatch(expected.begin(), expected.end(), padded_actual.begin());
 	auto expected_position = result.first;
 	auto actual_position = result.second;
 	
@@ -36,10 +33,20 @@ inline std::string format_error_msg(const std::string& expected, const std::stri
 	{
 		match = std::string(expected.begin(), expected_position);
 	}
-	else if(actual_position != actual.end())
+	else if(actual_position != padded_actual.end())
 	{
 		match = expected;
 	}
 
 	return create_msg(match);
+}
+
+inline std::string format_error_msg(const std::string& expected, const std::string& actual)
+{
+	if(expected == actual)
+	{
+		return "No error. Strings are identical.";
+	}
+
+	return matching_expected_substring(expected, actual);
 }
